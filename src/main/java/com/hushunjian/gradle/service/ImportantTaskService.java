@@ -112,4 +112,12 @@ public class ImportantTaskService {
 		importantGroupTask.removeMember(member);
 	}
 
+	/**
+	 * 删除总控任务
+	 *
+	 * @param task
+	 */
+	public void deleteTask(TaskEntity task) {
+		taskRepo.delete(task);
+	}
 }

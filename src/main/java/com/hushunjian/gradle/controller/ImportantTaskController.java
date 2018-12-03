@@ -124,4 +124,15 @@ public class ImportantTaskController extends BaseController {
 		ImportantTaskResponse importantTaskResponse = ImportantTaskMapper.INSTANCE.toImportantTaskResponse(importantTaskGroup);
 		return success(importantTaskResponse);
 	}
+
+	@ApiOperation(value = "删除总控计划")
+	@GetMapping(value = "deleteTask")
+	public Object deleteTask(@RequestParam Long id){
+		TaskEntity task = importantTaskService.findTaskById(id);
+		if (task == null){
+			return failure("总控任务不存在");
+		}
+		importantTaskService.deleteTask(task);
+		return success("总控任务删除成功");
+	}
 }
