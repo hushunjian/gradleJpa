@@ -36,7 +36,8 @@ logs/
 .flattened-pom.xml
 .svn
 .factorypath
-.gradle/*
+.gradle
+gradle/
 .apt_generated
 /bin
 /build/*

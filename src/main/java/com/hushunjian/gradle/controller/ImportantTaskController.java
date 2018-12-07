@@ -135,4 +135,12 @@ public class ImportantTaskController extends BaseController {
 		importantTaskService.deleteTask(task);
 		return success("总控任务删除成功");
 	}
+
+	@ApiOperation(value = "获取所有加入重点任务组的任务")
+	@GetMapping(value = "getJoinImportantGroupTask")
+	public Object getJoinImportantGroupTask(){
+		List<TaskEntity> tasks = importantTaskService.getJoinImportantGroupTask();
+		List<TaskResponse> taskResponses = TaskMapper.INSTANCE.toTaskResponses(tasks);
+		return success(taskResponses);
+	}
 }

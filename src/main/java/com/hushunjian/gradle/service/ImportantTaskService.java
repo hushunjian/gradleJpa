@@ -120,4 +120,13 @@ public class ImportantTaskService {
 	public void deleteTask(TaskEntity task) {
 		taskRepo.delete(task);
 	}
+
+	/**
+	 * 获取所有加入重点任务组的任务
+	 *
+	 * @return
+	 */
+	public List<TaskEntity> getJoinImportantGroupTask() {
+		return  taskRepo.findByImportantTasksIsNotNull();
+	}
 }
