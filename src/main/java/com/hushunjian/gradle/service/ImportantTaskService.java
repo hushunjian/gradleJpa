@@ -1,5 +1,6 @@
 package com.hushunjian.gradle.service;
 
+import java.time.ZonedDateTime;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -38,12 +39,13 @@ public class ImportantTaskService {
 	/**
 	 * 添加重点任务组
 	 * 
-	 * @param taskName
+	 * @param importantTaskGroupName
 	 * @return
 	 */
 	public ImportantTaskEntity addImportantTaskGroup(String importantTaskGroupName) {
 		ImportantTaskEntity importantTaskGroup = new ImportantTaskEntity();
 		importantTaskGroup.setImportantTaskName(importantTaskGroupName);
+		importantTaskGroup.setStartDate(ZonedDateTime.now());
 		importantTaskRepo.save(importantTaskGroup);
 		return importantTaskGroup;
 	}

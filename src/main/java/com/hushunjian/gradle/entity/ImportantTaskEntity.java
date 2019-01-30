@@ -1,6 +1,7 @@
 package com.hushunjian.gradle.entity;
 
 import java.io.Serializable;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,7 +54,13 @@ public class ImportantTaskEntity implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "task_id")
 	private TaskEntity task;
-	
+
+	/**
+	 * 开始时间
+	 */
+	@Column(name = "start_date", columnDefinition = "datetime comment '开始时间'")
+	private ZonedDateTime startDate;
+
 	/**
 	 * 组成员所属的重点任务组id
 	 */
